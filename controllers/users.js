@@ -1,14 +1,16 @@
 module.exports = function(_) {
     return {
         setRouting: function(router) {
-            router.get('/', this.indexPage)
+            router.get('/', this.indexPage);
+            router.get('/signup', this.getSignUp);
         },
 
         indexPage: function(req, res) {
-            console.log('oasdkasodksaok')
-            return res.render('index', {
-                test: 'This is a test'
-            })
+            return res.render('index');
+        },
+
+        getSignUp: function(req, res) {
+            return res.render('signup');
         }
     };
 };

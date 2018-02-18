@@ -9,6 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const validator = require('express-validator');
 const passport = require('passport');
+// const morgan = require('morgan');
 
 const container = require('./container');
 const router = require('express-promise-router')();
@@ -22,6 +23,8 @@ container.resolve(function(users) {
         app.set('view engine', 'ejs');
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended: true }));
+
+        // app.use(morgan('dev'));
 
         app.use(validator());
         app.use(session({
